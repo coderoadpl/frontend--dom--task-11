@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1></h1>
+
+    <input
+        type="radio"
+        value="0"
+        name="same-name"
+    />
+    <input
+        type="radio"
+        value="1"
+        name="same-name"
+    />
+    <input
+        type="radio"
+        value="2"
+        name="same-name"
+    />
+    <input
+        type="radio"
+        value="3"
+        name="same-name"
+        checked
+    />
+    <input
+        type="radio"
+        value="4"
+        name="same-name"
+    />
+
+    <script>
+
+        const h1 = document.querySelector('h1')
+        const inputs = document.querySelectorAll('input')
+
+        let radioValue = null
+
+        function eventHandler(event) {
+            radioValue = event.target.value
+            displayValueInHeader()
+        }
+        function displayValueInHeader() {
+            h1.innerText = radioValue
+        }
+
+        for (let i = 0; i < inputs.length; i++) {
+            const input = inputs[i]
+
+            if (input.checked) {
+                radioValue = input.value
+                displayValueInHeader()
+            }
+
+            input.addEventListener(
+                'change',
+                eventHandler
+            )
+        }
+
+    </script>
+
+</body>
+
+</html>
